@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "12e06cbb-65d9-47d9-b6be-4563604a7c0b",
+		"name": "Settings-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32137183"
+	},
+	"item": [
+		{
+			"name": "GetToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"var token = jsonData['access_token'];\r",
+							"pm.globals.set('settings_token', token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "economicdev",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "jFgqteeojZb9JtujTOydb5QLUxdRdPSucOZmVxOKhHVWvQUrpqp3Ls9PzWaNXQoWdDk3u3uhFs9",
+							"type": "text"
+						},
+						{
+							"key": "scopes",
+							"value": "empty htmlconverter pdflibservice settings currency skatconnect translations",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://id-staging.staging.e-conomic.com/connect/token",
+					"protocol": "https",
+					"host": [
+						"id-staging",
+						"staging",
+						"e-conomic",
+						"com"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetSettings",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{settings_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://settings.staging.e-conomic.com/v2/e-conomic/-1/:aggreement/user/:userId/dashboard_v2",
+					"protocol": "https",
+					"host": [
+						"settings",
+						"staging",
+						"e-conomic",
+						"com"
+					],
+					"path": [
+						"v2",
+						"e-conomic",
+						"-1",
+						":aggreement",
+						"user",
+						":userId",
+						"dashboard_v2"
+					],
+					"variable": [
+						{
+							"key": "aggreement",
+							"value": "179476"
+						},
+						{
+							"key": "userId",
+							"value": "admin-179472ces"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutSettings",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{settings_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"charts\": [\r\n        {\r\n            \"id\": \"3fdea0f4-c7ba-4b18-9e93-12d33c9fbb7b\",\r\n            \"name\": \"Top overdue sales invoices 2321321\",\r\n            \"chartType\": 4,\r\n            \"dataType\": 2\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://settings.staging.e-conomic.com/v2/e-conomic/-1/:aggreement/user/:userId/dashboard_v2",
+					"protocol": "https",
+					"host": [
+						"settings",
+						"staging",
+						"e-conomic",
+						"com"
+					],
+					"path": [
+						"v2",
+						"e-conomic",
+						"-1",
+						":aggreement",
+						"user",
+						":userId",
+						"dashboard_v2"
+					],
+					"variable": [
+						{
+							"key": "aggreement",
+							"value": "179476"
+						},
+						{
+							"key": "userId",
+							"value": "admin-179472ces"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteAllSettings",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{settings_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://settings.staging.e-conomic.com/v2/e-conomic/-1/:aggreement/user/:userId/dashboard_v2",
+					"protocol": "https",
+					"host": [
+						"settings",
+						"staging",
+						"e-conomic",
+						"com"
+					],
+					"path": [
+						"v2",
+						"e-conomic",
+						"-1",
+						":aggreement",
+						"user",
+						":userId",
+						"dashboard_v2"
+					],
+					"variable": [
+						{
+							"key": "aggreement",
+							"value": "179476"
+						},
+						{
+							"key": "userId",
+							"value": "admin-179472ces"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
