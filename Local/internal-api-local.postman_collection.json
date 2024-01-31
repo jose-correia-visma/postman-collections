@@ -39,6 +39,45 @@
 					"response": []
 				},
 				{
+					"name": "Get ledger cards",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Economictoken",
+								"value": "iMem6yRpwFiyxCWlOzmgNVc7VjMYnpDOzPW3D+prqiE=-MTc5NDc0O2NlczsxNzk0NzItLTwhPi0tNTI1MDEwOTE5NDM5NzkwNTY2MQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromDate\": \"2022-01-01T12:00:00.000Z\",\r\n    \"toDate\": \"2022-12-31T12:00:00.000Z\",\r\n    \"fromAccount\": 999,\r\n    \"toAccount\": 1310,\r\n    \"newPageAfterEachAccount\": true,\r\n    \"includeDayBookEntries\": true,\r\n    \"showUnits\": true,\r\n    \"currency\": \"\",\r\n    \"view\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proxy/internal-api/reports/statements/ledger-cards/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"statements",
+								"ledger-cards",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Period Total",
 					"request": {
 						"method": "POST",
@@ -76,7 +115,7 @@
 					"response": []
 				},
 				{
-					"name": "Get ledger cards",
+					"name": "Get Entries",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -88,7 +127,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"fromDate\": \"2022-01-01T12:00:00.000Z\",\r\n    \"toDate\": \"2022-12-31T12:00:00.000Z\",\r\n    \"fromAccount\": 999,\r\n    \"toAccount\": 1310,\r\n    \"newPageAfterEachAccount\": true,\r\n    \"includeDayBookEntries\": true,\r\n    \"showUnits\": true,\r\n    \"currency\": \"\",\r\n    \"view\": 0\r\n}",
+							"raw": "{\r\n  \"from\": \"2024-01-31T17:55:57.619Z\",\r\n  \"to\": \"2024-03-02T17:55:57.619Z\",\r\n  \"showUnits\": false,\r\n  \"entryType\": 0\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -96,7 +135,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/proxy/internal-api/reports/statements/ledger-cards/",
+							"raw": "http://localhost:3000/proxy/internal-api/reports/statements/entries",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -107,8 +146,7 @@
 								"internal-api",
 								"reports",
 								"statements",
-								"ledger-cards",
-								""
+								"entries"
 							]
 						}
 					},
