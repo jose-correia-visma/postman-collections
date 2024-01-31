@@ -1,0 +1,120 @@
+{
+	"info": {
+		"_postman_id": "31bbe3ad-d584-4b6f-8f04-3dcde5fab63d",
+		"name": "internal-api-local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32137183"
+	},
+	"item": [
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "Get chart of accounts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Economictoken",
+								"value": "iMem6yRpwFiyxCWlOzmgNVc7VjMYnpDOzPW3D+prqiE=-MTc5NDc0O2NlczsxNzk0NzItLTwhPi0tNTI1MDEwOTE5NDM5NzkwNTY2MQ==",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/proxy/internal-api/reports/statements/accounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"statements",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Period Total",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Economictoken",
+								"value": "iMem6yRpwFiyxCWlOzmgNVc7VjMYnpDOzPW3D+prqiE=-MTc5NDc0O2NlczsxNzk0NzItLTwhPi0tNTI1MDEwOTE5NDM5NzkwNTY2MQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2023-11-01\",\r\n            \"to\": \"2023-12-31\",\r\n            \"header\": \"1.11.23-31.12.23\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proxy/internal-api/accounting/periods-total",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proxy",
+								"internal-api",
+								"accounting",
+								"periods-total"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ledger cards",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Economictoken",
+								"value": "iMem6yRpwFiyxCWlOzmgNVc7VjMYnpDOzPW3D+prqiE=-MTc5NDc0O2NlczsxNzk0NzItLTwhPi0tNTI1MDEwOTE5NDM5NzkwNTY2MQ==",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fromDate\": \"2022-01-01T12:00:00.000Z\",\r\n    \"toDate\": \"2022-12-31T12:00:00.000Z\",\r\n    \"fromAccount\": 999,\r\n    \"toAccount\": 1310,\r\n    \"newPageAfterEachAccount\": true,\r\n    \"includeDayBookEntries\": true,\r\n    \"showUnits\": true,\r\n    \"currency\": \"\",\r\n    \"view\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/proxy/internal-api/reports/statements/ledger-cards/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"statements",
+								"ledger-cards",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
