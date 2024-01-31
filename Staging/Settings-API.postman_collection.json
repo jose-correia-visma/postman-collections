@@ -2,75 +2,11 @@
 	"info": {
 		"_postman_id": "12e06cbb-65d9-47d9-b6be-4563604a7c0b",
 		"name": "Settings-API",
+		"description": "Settings API, which serves as the backend service responsible for storing user-specific data utilized to populate the dashboards within the Reports module.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32137183"
 	},
 	"item": [
-		{
-			"name": "GetToken",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);\r",
-							"var token = jsonData['access_token'];\r",
-							"pm.globals.set('settings_token', token);"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "grant_type",
-							"value": "client_credentials",
-							"type": "text"
-						},
-						{
-							"key": "client_id",
-							"value": "economicdev",
-							"type": "text"
-						},
-						{
-							"key": "client_secret",
-							"value": "jFgqteeojZb9JtujTOydb5QLUxdRdPSucOZmVxOKhHVWvQUrpqp3Ls9PzWaNXQoWdDk3u3uhFs9",
-							"type": "text"
-						},
-						{
-							"key": "scopes",
-							"value": "empty htmlconverter pdflibservice settings currency skatconnect translations",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://id-staging.staging.e-conomic.com/connect/token",
-					"protocol": "https",
-					"host": [
-						"id-staging",
-						"staging",
-						"e-conomic",
-						"com"
-					],
-					"path": [
-						"connect",
-						"token"
-					]
-				}
-			},
-			"response": []
-		},
 		{
 			"name": "GetSettings",
 			"request": {
@@ -208,6 +144,56 @@
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const options = {",
+					"    url: \"https://id-staging.staging.e-conomic.com/connect/token\",",
+					"    method: 'POST',",
+					"    header: { 'content-type': 'application/json' },",
+					"    body: {",
+					"        mode: 'urlencoded',",
+					"        urlencoded: [",
+					"            { key: 'grant_type', value: 'client_credentials'},",
+					"            { key: 'client_id', value: 'economicdev'},",
+					"            { key: 'client_secret', value: 'jFgqteeojZb9JtujTOydb5QLUxdRdPSucOZmVxOKhHVWvQUrpqp3Ls9PzWaNXQoWdDk3u3uhFs9'},",
+					"            { key: 'scopes', value: 'empty htmlconverter pdflibservice settings currency skatconnect translations'},",
+					"        ]",
+					"    }",
+					"};",
+					"",
+					"pm.sendRequest(options, function (err, res) {",
+					"    var jsonData = res.json();",
+					"    if (err) {",
+					"        console.log(err);",
+					"    }",
+					"    else {",
+					"        var token = jsonData['access_token'];",
+					"        pm.collectionVariables.set('settings_token', token);",
+					"    }",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "settings_token",
+			"value": ""
 		}
 	]
 }
