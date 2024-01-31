@@ -4,13 +4,15 @@ Establish a repository specifically designed to archive Postman collections crea
 
 ## Staging
 
-### Settings API Postman Collection
+### Settings API 
 
-This repository contains a Postman collection tailored for the Settings API, which serves as the backend service responsible for storing user-specific data utilized to populate the dashboards within the Reports module.
+Postman collection tailored for the Settings API, which serves as the backend service responsible for storing user-specific data utilized to populate the dashboards within the Reports module.
 
 ## Local
 
-TBD
+### Reports
+
+Postman collection tailored for internal-api
 
 ## Contribution
 
