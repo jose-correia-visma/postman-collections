@@ -7,5 +7,5 @@ Postman collection tailored for internal-api in local environment
 - Add to your browser the postman interceptor [extension](https://chromewebstore.google.com/detail/postman-interceptor/aicmkgpgakddgnaphhhpliifpcfhicfo)
 
 - Configure accordingly to the image below
-  - ![interceptor](images\interceptor.jpg)
+  - ![interceptor](images/interceptor.jpg)
 - Every time you start you api make the request **Get Econ Token** and automatically the token will be set to the local requests
