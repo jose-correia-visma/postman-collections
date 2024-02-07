@@ -158,6 +158,79 @@
 			]
 		},
 		{
+			"name": "Modules",
+			"item": [
+				{
+					"name": "Get All Modules",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/modules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"modules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Modules Access By Id",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/modules/:moduleId/access",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"modules",
+								":moduleId",
+								"access"
+							],
+							"variable": [
+								{
+									"key": "moduleId",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "Get EconToken",
 			"event": [
 				{
