@@ -6,7 +6,7 @@ Postman collection tailored for internal-api in local environment
 
 ## Entries
 
-Find all the information about entries endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/Entries/EntriesReportController.Net.cs)
+Find all the information about **entries** endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/Entries/EntriesReportController.Net.cs)
 
 ### POST `/internal-api/reports/statements/entries`
 
@@ -26,7 +26,7 @@ Find all the information about entries endpoints [here](https://github.com/e-con
 
 ## Chart of accounts
 
-Find all the information about chart of accounts endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/ChartOfAccounts/ChartOfAccountsController.Net.cs) 
+Find all the information about **chart of accounts** endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/ChartOfAccounts/ChartOfAccountsController.Net.cs) 
 
 ### GET `/internal-api/reports/statements/accounts`
 
@@ -35,7 +35,7 @@ Find all the information about chart of accounts endpoints [here](https://github
 
 ## Ledger cards
 
-Find all the information about chart of accounts endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/LedgerCardsController.Net.cs)
+Find all the information about **ledger card** endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Reports/Statements/LedgerCardsController.Net.cs)
 
 ### POST `/internal-api/reports/statements/ledger-cards/`
 
@@ -56,6 +56,29 @@ Find all the information about chart of accounts endpoints [here](https://github
 ```
 
 ## Period total
+
+Find all the information about **period total** endpoints [here](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.InternalApi/Endpoints/Accounting/PeriodsTotalController.Net.cs)
+
+### POST `/internal-api/accounting/periods-total`
+
+**Body Payload** [more](https://github.com/e-conomic/e-conomic/blob/master/code/Economic.Dto/Reports/Statements/PeriodsTotal/PeriodsTotalInput.cs)
+```
+{
+    "showWithoutEntries": false,
+    "showAccountsNoBalance": false,
+    "showEmptyHeadings": false,
+    "includeDraftEntries": false,
+    "periods": [
+        {
+            "from": "2023-11-01",
+            "to": "2023-12-31",
+            "header": "1.11.23-31.12.23",
+            "type": "PeriodData"
+        }
+    ],
+    "filters": {}
+}
+```
 
 ## Turnover Statistics
 
