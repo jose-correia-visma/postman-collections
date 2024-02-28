@@ -10,155 +10,352 @@
 			"name": "reports",
 			"item": [
 				{
-					"name": "Get chart of accounts",
-					"request": {
-						"auth": {
-							"type": "noauth"
+					"name": "entries",
+					"item": [
+						{
+							"name": "GetAll - Export",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"filter\": {\r\n        \"orderBy\": \"Date\",\r\n        \"from\": \"2023-12-20\",\r\n        \"to\": \"2023-12-20\"\r\n    },\r\n    \"columns\": [\r\n        {\r\n            \"Accessor\": \"accountNumber\",\r\n            \"ColumnHeader\": \"Account\"\r\n        },\r\n        {\r\n            \"Accessor\": \"name\",\r\n            \"ColumnHeader\": \"Name\"\r\n        },\r\n        {\r\n            \"Accessor\": \"date\",\r\n            \"ColumnHeader\": \"Date\"\r\n        },\r\n        {\r\n            \"Accessor\": \"voucher\",\r\n            \"ColumnHeader\": \"Voucher\"\r\n        },\r\n        {\r\n            \"Accessor\": \"entryType\",\r\n            \"ColumnHeader\": \"Type\"\r\n        },\r\n        {\r\n            \"Accessor\": \"text\",\r\n            \"ColumnHeader\": \"Text\"\r\n        },\r\n        {\r\n            \"Accessor\": \"unit\",\r\n            \"ColumnHeader\": \"Unit\"\r\n        },\r\n        {\r\n            \"Accessor\": \"quantity\",\r\n            \"ColumnHeader\": \"Quantity\"\r\n        },\r\n        {\r\n            \"Accessor\": \"department\",\r\n            \"ColumnHeader\": \"Department\"\r\n        },\r\n        {\r\n            \"Accessor\": \"vatCode\",\r\n            \"ColumnHeader\": \"VAT\"\r\n        },\r\n        {\r\n            \"Accessor\": \"currency\",\r\n            \"ColumnHeader\": \"Currency\"\r\n        },\r\n        {\r\n            \"Accessor\": \"amountInBaseCurrency\",\r\n            \"ColumnHeader\": \"Amount\"\r\n        },\r\n        {\r\n            \"Accessor\": \"balance\",\r\n            \"ColumnHeader\": \"Balance\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries/export",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"entries",
+										"export"
+									]
+								}
+							},
+							"response": []
 						},
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{econToken}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/statements/accounts",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "55001",
-							"path": [
-								"proxy",
-								"internal-api",
-								"reports",
-								"statements",
-								"accounts"
-							]
+						{
+							"name": "GetAll - Filter by Entry Order DESC",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderBy\": \"voucherNumber\",\r\n    \"orderByDescending\": true,\r\n    \"from\": \"2014-01-01\",\r\n    \"to\": \"2014-12-31\",\r\n    \"fromEntry\": 3039,\r\n    \"toEntry\": 3100\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"entries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll - Filter by AccountNumber Order DESC",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderBy\": \"accountNumber\",\r\n    \"orderByDescending\": true,\r\n    \"from\": \"2014-01-01\",\r\n    \"to\": \"2014-01-02\",\r\n    \"fromAccount\": 2000,\r\n    \"toAccount\": 3000\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"entries"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GetAll - Filter by Dates",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"orderBy\": \"Date\",\r\n    \"from\": \"2014-01-01\",\r\n    \"to\": \"2014-12-31\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries?skipPages=1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"entries"
+									],
+									"query": [
+										{
+											"key": "skipPages",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get ledger cards",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{econToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"fromDate\": \"2022-01-01T12:00:00.000Z\",\r\n    \"toDate\": \"2022-12-31T12:00:00.000Z\",\r\n    \"fromAccount\": 999,\r\n    \"toAccount\": 1310,\r\n    \"newPageAfterEachAccount\": true,\r\n    \"includeDayBookEntries\": true,\r\n    \"showUnits\": true,\r\n    \"currency\": \"\",\r\n    \"view\": 0\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "chart-of-accounts",
+					"item": [
+						{
+							"name": "Get chart of accounts",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/accounts",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"accounts"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/statements/ledger-cards/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "55001",
-							"path": [
-								"proxy",
-								"internal-api",
-								"reports",
-								"statements",
-								"ledger-cards",
-								""
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get Period Total",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{econToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2023-11-01\",\r\n            \"to\": \"2023-12-31\",\r\n            \"header\": \"1.11.23-31.12.23\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "ledger-cards",
+					"item": [
+						{
+							"name": "Get ledger cards",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"fromDate\": \"2022-01-01T12:00:00.000Z\",\r\n    \"toDate\": \"2022-12-31T12:00:00.000Z\",\r\n    \"fromAccount\": 999,\r\n    \"toAccount\": 1310,\r\n    \"newPageAfterEachAccount\": true,\r\n    \"includeDayBookEntries\": true,\r\n    \"showUnits\": true,\r\n    \"currency\": \"\",\r\n    \"view\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/ledger-cards/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"statements",
+										"ledger-cards",
+										""
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/accounting/periods-total",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "55001",
-							"path": [
-								"proxy",
-								"internal-api",
-								"accounting",
-								"periods-total"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "Get Entries",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{econToken}}",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"orderBy\": \"accountNumber\",\r\n    \"orderByDescending\": true,\r\n    \"from\": \"2014-01-01\",\r\n    \"to\": \"2014-01-02\",\r\n    \"fromAccount\": 2000,\r\n    \"toAccount\": 3000\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "period-total",
+					"item": [
+						{
+							"name": "Get Period Total",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2023-11-01\",\r\n            \"to\": \"2023-12-31\",\r\n            \"header\": \"1.11.23-31.12.23\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/accounting/periods-total",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"accounting",
+										"periods-total"
+									]
 								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "55001",
-							"path": [
-								"proxy",
-								"internal-api",
-								"reports",
-								"statements",
-								"entries"
-							]
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
+				},
+				{
+					"name": "TurnoverStatistics",
+					"item": [
+						{
+							"name": "Get turnover statistics",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"groupType\": 2, //Products , 1 - Customers, 2 - Employees\r\n    \"toInvoiceDate\": \"2024-02-29\",\r\n    \"includeChargeStatement\" : true,\r\n    \"unit\": \"0\" // 0 - All   -1 - none\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/proxy/internal-api/reports/customers/turnover-statistics?pageSize=100&skipPages=0",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"proxy",
+										"internal-api",
+										"reports",
+										"customers",
+										"turnover-statistics"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "100"
+										},
+										{
+											"key": "skipPages",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
 				}
 			]
 		},
 		{
-			"name": "Modules",
+			"name": "modules",
 			"item": [
 				{
 					"name": "Get All Modules",
@@ -205,7 +402,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/modules/:moduleId/access",
+							"raw": "http://localhost:55001/proxy/internal-api/modules/41/access",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -215,13 +412,334 @@
 								"proxy",
 								"internal-api",
 								"modules",
-								":moduleId",
+								"41",
 								"access"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "dashboards",
+			"item": [
+				{
+					"name": "Data - Customers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=1&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
 							],
-							"variable": [
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
 								{
-									"key": "moduleId",
+									"key": "dataType",
+									"value": "1"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data - Invoices",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=2&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
+								{
+									"key": "dataType",
+									"value": "2"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data - Customer Turnover",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=3&fromDate=2023-01-01&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
+								{
+									"key": "dataType",
+									"value": "3"
+								},
+								{
+									"key": "fromDate",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data - Employee Turnover",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=4&fromDate=2023-01-01&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
+								{
+									"key": "dataType",
 									"value": "4"
+								},
+								{
+									"key": "fromDate",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data - Product Turnover",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=5&fromDate=2023-01-01&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
+								{
+									"key": "dataType",
+									"value": "5"
+								},
+								{
+									"key": "fromDate",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Data - Customer Turnover Stats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"reverseSign\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-31\",\r\n            \"header\": \"2021\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2021-01-01\",\r\n            \"to\": \"2021-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2022-01-01\",\r\n            \"to\": \"2022-12-31\",\r\n            \"header\": \"2022\",\r\n            \"type\": \"PeriodData\"\r\n        },\r\n        {\r\n            \"from\": \"2023-01-01\",\r\n            \"to\": \"2023-12-05\",\r\n            \"header\": \"Year to date\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=6&fromDate=2023-01-01&toDate=2023-12-31",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
+								"proxy",
+								"internal-api",
+								"reports",
+								"dashboard",
+								"data"
+							],
+							"query": [
+								{
+									"key": "dataType",
+									"value": "6"
+								},
+								{
+									"key": "fromDate",
+									"value": "2023-01-01"
+								},
+								{
+									"key": "toDate",
+									"value": "2023-12-31"
 								}
 							]
 						}
