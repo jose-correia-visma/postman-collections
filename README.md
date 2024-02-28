@@ -4,7 +4,7 @@ Establish a repository specifically designed to archive Postman collections crea
 
 ## Staging
 
-[Staging endpoints collection]h(ttps://github.com/jose-correia-visma/postman-collections/tree/master/Staging#settings-api)
+[Staging endpoints collection](https://github.com/jose-correia-visma/postman-collections/tree/master/Staging#settings-api)
 
 ## Local
 
