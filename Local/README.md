@@ -2,6 +2,13 @@
 
 Postman collection tailored for internal-api in local environment
 
+1. [How to get token updated in local postman](#how-to-get-token-updated-in-local-postman)
+2. [Reports](#reports)
+    1. [Entries](#entries)
+    2. [Chart of Accounts](#chart-of-accounts)
+    3. [Ledger Cards](#ledger-cards)
+    4. [Period Total](#period-total)
+
 # Reports
 
 ## Entries
