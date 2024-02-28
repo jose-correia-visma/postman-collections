@@ -4,15 +4,11 @@ Establish a repository specifically designed to archive Postman collections crea
 
 ## Staging
 
-### Settings API 
-
-Postman collection tailored for the Settings API, which serves as the backend service responsible for storing user-specific data utilized to populate the dashboards within the Reports module.
+[Staging endpoints collection](https://github.com/jose-correia-visma/postman-collections)
 
 ## Local
 
-### Reports
-
-Postman collection tailored for internal-api
+[Local endpoints collection](https://github.com/jose-correia-visma/postman-collections/tree/master/Local#internal-api-local-env)
 
 ## Contribution
 
