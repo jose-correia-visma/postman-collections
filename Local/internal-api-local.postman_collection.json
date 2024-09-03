@@ -33,14 +33,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries/export",
+									"raw": "http://localhost:55001/internal-api/reports/statements/entries/export",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -72,14 +71,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries",
+									"raw": "http://localhost:55001/internal-api/reports/statements/entries",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -110,14 +108,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries",
+									"raw": "http://localhost:55001/internal-api/reports/statements/entries",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -148,14 +145,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/entries?skipPages=1",
+									"raw": "http://localhost:55001/internal-api/reports/statements/entries?skipPages=1",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -191,14 +187,13 @@
 									}
 								],
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/accounts",
+									"raw": "http://localhost:55001/internal-api/reports/statements/accounts",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -234,14 +229,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/statements/ledger-cards/",
+									"raw": "http://localhost:55001/internal-api/reports/statements/ledger-cards/",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"statements",
@@ -278,14 +272,13 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/accounting/periods-total",
+									"raw": "http://localhost:55001/internal-api/accounting/periods-total",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"accounting",
 										"periods-total"
@@ -297,7 +290,7 @@
 					]
 				},
 				{
-					"name": "TurnoverStatistics",
+					"name": "turnover-statistics",
 					"item": [
 						{
 							"name": "Get turnover statistics",
@@ -315,7 +308,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"groupType\": 2, //Products , 1 - Customers, 2 - Employees\r\n    \"toInvoiceDate\": \"2024-02-29\",\r\n    \"includeChargeStatement\" : true,\r\n    \"unit\": \"0\" // 0 - All   -1 - none\r\n}",
+									"raw": " {\r\n     \"GROUPTYPE\": 1, // 1 - CUSTOMERS, 2-PRODUCTS, 3 - EMPLOYEES\r\n     \"toInvoiceDate\": \"2024-08-21\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -323,28 +316,97 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:55001/proxy/internal-api/reports/customers/turnover-statistics?pageSize=100&skipPages=0",
+									"raw": "http://localhost:55001/internal-api/reports/customers/turnover-statistics/grouped",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
 									"port": "55001",
 									"path": [
-										"proxy",
 										"internal-api",
 										"reports",
 										"customers",
-										"turnover-statistics"
-									],
-									"query": [
-										{
-											"key": "pageSize",
-											"value": "100"
-										},
-										{
-											"key": "skipPages",
-											"value": "0"
+										"turnover-statistics",
+										"grouped"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Purchase",
+					"item": [
+						{
+							"name": "purchase-statistics",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"groupType\": 1,\r\n    \"fromInvoiceDate\": \"2024-03-30T11:00:00.000Z\",\r\n    \"toInvoiceDate\": \"2024-03-31T11:00:00.000Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
 										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/internal-api/reports/suppliers/purchase-statistics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"internal-api",
+										"reports",
+										"suppliers",
+										"purchase-statistics"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "purchase-statistics Copy",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{econToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"groupType\": 1,\r\n    \"fromInvoiceDate\": \"2024-03-30T11:00:00.000Z\",\r\n    \"toInvoiceDate\": \"2024-03-31T11:00:00.000Z\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:55001/internal-api/reports/suppliers/purchase-statistics",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "55001",
+									"path": [
+										"internal-api",
+										"reports",
+										"suppliers",
+										"purchase-statistics"
 									]
 								}
 							},
@@ -372,14 +434,13 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/modules",
+							"raw": "http://localhost:55001/internal-api/modules",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"modules"
 							]
@@ -402,14 +463,44 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/modules/41/access",
+							"raw": "http://localhost:55001/internal-api/modules/41/access",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
+								"internal-api",
+								"modules",
+								"41",
+								"access"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Modules Access By Id Copy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{econToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:55001/internal-api/modules/41/access",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "55001",
+							"path": [
 								"internal-api",
 								"modules",
 								"41",
@@ -448,14 +539,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=1&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=1&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -499,14 +589,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=2&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=2&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -550,14 +639,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=3&fromDate=2023-01-01&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=3&fromDate=2023-01-01&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -605,14 +693,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=4&fromDate=2023-01-01&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=4&fromDate=2023-01-01&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -660,14 +747,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=5&fromDate=2023-01-01&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=5&fromDate=2023-01-01&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -715,14 +801,13 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:55001/proxy/internal-api/reports/dashboard/data?dataType=6&fromDate=2023-01-01&toDate=2023-12-31",
+							"raw": "http://localhost:55001/internal-api/reports/dashboard/data?dataType=6&fromDate=2023-01-01&toDate=2023-12-31",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "55001",
 							"path": [
-								"proxy",
 								"internal-api",
 								"reports",
 								"dashboard",
@@ -757,6 +842,14 @@
 						"exec": [
 							"pm.collectionVariables.set(\"econToken\", pm.response.text())"
 						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"packages": {},
 						"type": "text/javascript"
 					}
 				}
@@ -765,13 +858,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost/econFeature/internal-api/application/token",
+					"raw": "http://localhost:55001/internal-api/application/token",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
+					"port": "55001",
 					"path": [
-						"econFeature",
 						"internal-api",
 						"application",
 						"token"

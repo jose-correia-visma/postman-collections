@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "c2bf0e19-b3ed-41fa-83a6-995c87981bfe",
+		"name": "internal-api-staging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32137183"
+	},
+	"item": [
+		{
+			"name": "ChartOfAccounts",
+			"item": [
+				{
+					"name": "CharOfAccountsReports",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Economictoken",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkFBOUZEMjIwQjNEMDRGNEY1RTFCNjM0NEE0N0VBOUNCMkMzNzlFNTdSUzI1NiIsIng1dCI6InFwX1NJTFBRVDA5ZUcyTkVwSDZweXl3M25sYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20iLCJuYmYiOjE3MDc4MjE1MjksImlhdCI6MTcwNzgyMTUyOSwiZXhwIjoxNzA3OTA3OTI5LCJhdWQiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20vcmVzb3VyY2VzIiwic2NvcGUiOlsiY3VycmVuY3kiLCJlbWFpbCIsImVtcHR5IiwiaHRtbGNvbnZlcnRlciIsIm9wZW5pZCIsInBkZmxpYnNlcnZpY2UiLCJwcm9maWxlIiwicm9sZXMiLCJzZXR0aW5ncyIsInNrYXRjb25uZWN0IiwidHJhbnNsYXRpb25zIl0sImFtciI6WyJlY29ub21pY191c2VyX2lkZW50aXR5Il0sImNsaWVudF9pZCI6ImVjb25vbWljIiwic3ViIjoiNTQ3ZDE1ODctMjBjNi00NzY2LWI2OTUtMmJkZWI1N2JlOTgyIiwiYXV0aF90aW1lIjoxNzA3ODIxNTI5LCJpZHAiOiJsb2NhbCIsImFncmVlbWVudF9udW1iZXIiOjE3OTQ3NiwidXNlcl9ndWlkIjoiMzYzNDM5OEQtNUFGMS00Q0E1LTlBMkYtNjA1OUIxRTgzNjY5IiwidXNlcl9hZ3JlZW1lbnRfbnVtYmVyIjoxNzk0NzYsImp0aSI6Ijc5QjIxNDIzMDBGNDUxNDVBMDBCODA3QjI4NTBGQTdFIn0.I7SAZQhjc5rfsIQR9VSsGd7jEKm0E2-LC9fZVWeLIugPV0hDbcTka5ArJ-DR4bqjaxPSj47_Nk7VCLzQbaxCLjOjsq89UVO_V0ZjeTlLpwdNEr4ABA9t6j21X9a5uBzt2ny49gRzXZVIZ61M7ueSIvKooat_gnapC_PpwVnl2z21do6osu5ekcqSagojaacb34HNpSc4Hb4NMNW4NkjCkyRIM7C8SSC505qnfDvjGhwQD5XLvKGbGw2203McBl_sQhgahfGx6nwi7S_X1VTWV0JyNxtiokRxfCiTfnW3nWNBmjeKcne55MPW1FMeH_oyxinPW1Y5hPp4H712p9KemA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gemini.secure.e-conomic.com/internal-api/reports/statements/accounts",
+							"protocol": "https",
+							"host": [
+								"gemini",
+								"secure",
+								"e-conomic",
+								"com"
+							],
+							"path": [
+								"internal-api",
+								"reports",
+								"statements",
+								"accounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharOfAccountsReports w/ filters",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkFBOUZEMjIwQjNEMDRGNEY1RTFCNjM0NEE0N0VBOUNCMkMzNzlFNTdSUzI1NiIsIng1dCI6InFwX1NJTFBRVDA5ZUcyTkVwSDZweXl3M25sYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20iLCJuYmYiOjE3MDc4MjE1MjksImlhdCI6MTcwNzgyMTUyOSwiZXhwIjoxNzA3OTA3OTI5LCJhdWQiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20vcmVzb3VyY2VzIiwic2NvcGUiOlsiY3VycmVuY3kiLCJlbWFpbCIsImVtcHR5IiwiaHRtbGNvbnZlcnRlciIsIm9wZW5pZCIsInBkZmxpYnNlcnZpY2UiLCJwcm9maWxlIiwicm9sZXMiLCJzZXR0aW5ncyIsInNrYXRjb25uZWN0IiwidHJhbnNsYXRpb25zIl0sImFtciI6WyJlY29ub21pY191c2VyX2lkZW50aXR5Il0sImNsaWVudF9pZCI6ImVjb25vbWljIiwic3ViIjoiNTQ3ZDE1ODctMjBjNi00NzY2LWI2OTUtMmJkZWI1N2JlOTgyIiwiYXV0aF90aW1lIjoxNzA3ODIxNTI5LCJpZHAiOiJsb2NhbCIsImFncmVlbWVudF9udW1iZXIiOjE3OTQ3NiwidXNlcl9ndWlkIjoiMzYzNDM5OEQtNUFGMS00Q0E1LTlBMkYtNjA1OUIxRTgzNjY5IiwidXNlcl9hZ3JlZW1lbnRfbnVtYmVyIjoxNzk0NzYsImp0aSI6Ijc5QjIxNDIzMDBGNDUxNDVBMDBCODA3QjI4NTBGQTdFIn0.I7SAZQhjc5rfsIQR9VSsGd7jEKm0E2-LC9fZVWeLIugPV0hDbcTka5ArJ-DR4bqjaxPSj47_Nk7VCLzQbaxCLjOjsq89UVO_V0ZjeTlLpwdNEr4ABA9t6j21X9a5uBzt2ny49gRzXZVIZ61M7ueSIvKooat_gnapC_PpwVnl2z21do6osu5ekcqSagojaacb34HNpSc4Hb4NMNW4NkjCkyRIM7C8SSC505qnfDvjGhwQD5XLvKGbGw2203McBl_sQhgahfGx6nwi7S_X1VTWV0JyNxtiokRxfCiTfnW3nWNBmjeKcne55MPW1FMeH_oyxinPW1Y5hPp4H712p9KemA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gemini.secure.e-conomic.com/secure/internal-api/reports/statements/accounts?filter=number$eq:1234",
+							"protocol": "https",
+							"host": [
+								"gemini",
+								"secure",
+								"e-conomic",
+								"com"
+							],
+							"path": [
+								"secure",
+								"internal-api",
+								"reports",
+								"statements",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "number$eq:1234"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CharOfAccountsReports w/ sort",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkFBOUZEMjIwQjNEMDRGNEY1RTFCNjM0NEE0N0VBOUNCMkMzNzlFNTdSUzI1NiIsIng1dCI6InFwX1NJTFBRVDA5ZUcyTkVwSDZweXl3M25sYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20iLCJuYmYiOjE3MDc4MjE1MjksImlhdCI6MTcwNzgyMTUyOSwiZXhwIjoxNzA3OTA3OTI5LCJhdWQiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20vcmVzb3VyY2VzIiwic2NvcGUiOlsiY3VycmVuY3kiLCJlbWFpbCIsImVtcHR5IiwiaHRtbGNvbnZlcnRlciIsIm9wZW5pZCIsInBkZmxpYnNlcnZpY2UiLCJwcm9maWxlIiwicm9sZXMiLCJzZXR0aW5ncyIsInNrYXRjb25uZWN0IiwidHJhbnNsYXRpb25zIl0sImFtciI6WyJlY29ub21pY191c2VyX2lkZW50aXR5Il0sImNsaWVudF9pZCI6ImVjb25vbWljIiwic3ViIjoiNTQ3ZDE1ODctMjBjNi00NzY2LWI2OTUtMmJkZWI1N2JlOTgyIiwiYXV0aF90aW1lIjoxNzA3ODIxNTI5LCJpZHAiOiJsb2NhbCIsImFncmVlbWVudF9udW1iZXIiOjE3OTQ3NiwidXNlcl9ndWlkIjoiMzYzNDM5OEQtNUFGMS00Q0E1LTlBMkYtNjA1OUIxRTgzNjY5IiwidXNlcl9hZ3JlZW1lbnRfbnVtYmVyIjoxNzk0NzYsImp0aSI6Ijc5QjIxNDIzMDBGNDUxNDVBMDBCODA3QjI4NTBGQTdFIn0.I7SAZQhjc5rfsIQR9VSsGd7jEKm0E2-LC9fZVWeLIugPV0hDbcTka5ArJ-DR4bqjaxPSj47_Nk7VCLzQbaxCLjOjsq89UVO_V0ZjeTlLpwdNEr4ABA9t6j21X9a5uBzt2ny49gRzXZVIZ61M7ueSIvKooat_gnapC_PpwVnl2z21do6osu5ekcqSagojaacb34HNpSc4Hb4NMNW4NkjCkyRIM7C8SSC505qnfDvjGhwQD5XLvKGbGw2203McBl_sQhgahfGx6nwi7S_X1VTWV0JyNxtiokRxfCiTfnW3nWNBmjeKcne55MPW1FMeH_oyxinPW1Y5hPp4H712p9KemA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://gemini.secure.e-conomic.com/secure/internal-api/reports/statements/accounts?sort=-number",
+							"protocol": "https",
+							"host": [
+								"gemini",
+								"secure",
+								"e-conomic",
+								"com"
+							],
+							"path": [
+								"secure",
+								"internal-api",
+								"reports",
+								"statements",
+								"accounts"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "-number"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Period-TotalV2",
+			"item": [
+				{
+					"name": "GetPeriods-total",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6IkFBOUZEMjIwQjNEMDRGNEY1RTFCNjM0NEE0N0VBOUNCMkMzNzlFNTdSUzI1NiIsIng1dCI6InFwX1NJTFBRVDA5ZUcyTkVwSDZweXl3M25sYyIsInR5cCI6ImF0K2p3dCJ9.eyJpc3MiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20iLCJuYmYiOjE3MDc4MjA2MjcsImlhdCI6MTcwNzgyMDYyNywiZXhwIjoxNzA3OTA3MDI3LCJhdWQiOiJodHRwczovL2lkLWdlbWluaS5zdGFnaW5nLmUtY29ub21pYy5jb20vcmVzb3VyY2VzIiwic2NvcGUiOlsiY3VycmVuY3kiLCJlbWFpbCIsImVtcHR5IiwiaHRtbGNvbnZlcnRlciIsIm9wZW5pZCIsInBkZmxpYnNlcnZpY2UiLCJwcm9maWxlIiwicm9sZXMiLCJzZXR0aW5ncyIsInNrYXRjb25uZWN0IiwidHJhbnNsYXRpb25zIl0sImFtciI6WyJlY29ub21pY191c2VyX2lkZW50aXR5Il0sImNsaWVudF9pZCI6ImVjb25vbWljIiwic3ViIjoiNTQ3ZDE1ODctMjBjNi00NzY2LWI2OTUtMmJkZWI1N2JlOTgyIiwiYXV0aF90aW1lIjoxNzA3ODIwNjI3LCJpZHAiOiJsb2NhbCIsImFncmVlbWVudF9udW1iZXIiOjE3OTQ3NiwidXNlcl9ndWlkIjoiMzYzNDM5OEQtNUFGMS00Q0E1LTlBMkYtNjA1OUIxRTgzNjY5IiwidXNlcl9hZ3JlZW1lbnRfbnVtYmVyIjoxNzk0NzYsImp0aSI6IkI2QTZGQkE2NTA2MEU5MkJCMUIwNEZEMUFFQzdBNUVGIn0.K9qHMdcUXg0LU9Z10yJViwfGwS39stBoI7M2nVoED_wgFrgqZB9IL_VP_yyS2xoZQCGcfN4DZdHru8rYEPdNfb3PSEqbwnNwIs58WtigCjvBbglxOiFabR7ZDcQ-FlrfT5jh2QUS6ShhwSWpSQp157HHSgf533-CFbD4ccXelhs9-UkZQ5wfqk0kGx7wVp2yYIr5pqU9MeafmmyHkJtP2wSOIUtB5A_Khuhx4XP5gi1bFqB7XAig1YKNXJHdYEMeI5O979C3GD0dy34fRH6fbSKgWT1Pe5j2zFEnx2l4OmPmZzMxq96djJ_bWs27HXnnTXJKIgdzgcqQdfnaHiBqoA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"showWithoutEntries\": false,\r\n    \"showAccountsNoBalance\": false,\r\n    \"showEmptyHeadings\": false,\r\n    \"includeDraftEntries\": false,\r\n    \"periods\": [\r\n        {\r\n            \"from\": \"2023-11-01\",\r\n            \"to\": \"2023-12-31\",\r\n            \"header\": \"1.11.23-31.12.23\",\r\n            \"type\": \"PeriodData\"\r\n        }\r\n    ],\r\n    \"filters\": {}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{env}}.secure.e-conomic.com/secure/internal-api/accounting/periods-total",
+							"protocol": "https",
+							"host": [
+								"{{env}}",
+								"secure",
+								"e-conomic",
+								"com"
+							],
+							"path": [
+								"secure",
+								"internal-api",
+								"accounting",
+								"periods-total"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
